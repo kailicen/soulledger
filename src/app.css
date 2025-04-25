@@ -1,0 +1,55 @@
+/* Hide top nav on small screens */
+.hide-on-mobile {
+	display: block;
+}
+
+/* Simple mobile header is hidden by default */
+.mobile-header {
+	display: none;
+}
+
+/* Switch at mobile breakpoint */
+@media (max-width: 768px) {
+	.hide-on-mobile {
+		display: none;
+	}
+	.mobile-header {
+		display: block;
+		background: var(--background-color, #111);
+		border-bottom: 1px solid #333;
+	}
+	.mobile-header nav ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+/* Bottom mobile tab bar styles */
+.mobile-tabbar {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.mobile-tabbar {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: 0.75rem 1rem;
+		background: var(--background);
+		border-top: 1px solid #ddd;
+		z-index: 50;
+	}
+	.mobile-tabbar a {
+		font-size: 1.1rem;
+		text-align: center;
+	}
+}
+
+main {
+	padding-top: 1rem; /* space for mobile tabbar */
+}
