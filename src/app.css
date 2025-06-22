@@ -15,7 +15,7 @@
 	}
 	.mobile-header {
 		display: block;
-		background: var(--background-color, #111);
+		background: var(--background-color);
 		border-bottom: 1px solid #333;
 	}
 	.mobile-header nav ul {
@@ -27,26 +27,46 @@
 
 /* Bottom mobile tab bar styles */
 .mobile-tabbar {
-	display: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #222;
+	color: #ccc;
+	display: flex;
+	justify-content: space-around;
+	border-top: 1px solid #444;
+	border-radius: 1rem 1rem 0 0;
+	box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.3);
+	padding: 0.5rem 0;
+	font-size: 0.75rem;
+	z-index: 50;
 }
 
-@media (max-width: 768px) {
+.mobile-tabbar a {
+	flex: 1;
+	text-align: center;
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: color 0.2s ease;
+}
+
+.mobile-tabbar a:hover,
+.mobile-tabbar a.active {
+	color: var(--primary);
+}
+
+.mobile-tabbar i {
+	width: 20px;
+	height: 20px;
+}
+
+@media (min-width: 768px) {
 	.mobile-tabbar {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		padding: 0.75rem 1rem;
-		background: var(--background);
-		border-top: 1px solid #ddd;
-		z-index: 50;
-	}
-	.mobile-tabbar a {
-		font-size: 1.1rem;
-		text-align: center;
+		display: none;
 	}
 }
 

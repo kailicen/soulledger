@@ -1,0 +1,12 @@
+:root {
+	--primary: #ff6f61;
+	--primary-border: #e65c50;
+	--primary-inverse: #ffffff;
+	--accent: var(--primary);
+
+	/* Force override of PicoCSS theme */
+	--pico-primary-background: #ff6f61;
+	--pico-primary-border: #e65c50;
+	--pico-primary-inverse: #ffffff;
+	--pico-accent: #ff6f61;
+}

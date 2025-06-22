@@ -3,13 +3,16 @@
   import { supabase } from '$lib/supabaseClient';
   import type { User } from '@supabase/supabase-js';
   import '@picocss/pico/css/pico.min.css';
-  import '../app.css'
+  import '../theme.css';
+  import '../app.css'; // your layout + component styles
 
   let user: User | null = null;
 
   onMount(async () => {
     const { data } = await supabase.auth.getUser();
     user = data.user;
+
+    window.lucide?.createIcons();
   });
 
   async function logout() {
@@ -58,10 +61,18 @@
   <slot />
 </main>
 
-<!-- Mobile tab bar -->
+<!-- 💅 Styled Mobile Bottom Tab Bar (Pico-friendly custom CSS) -->
 <nav class="mobile-tabbar">
-  <a href="/journal">📓 Journal</a>
-  <a href="/insights">📈 Insights</a>
-  <a href="/settings">⚙️ Settings</a>
+  <a href="/journal">
+    <i data-lucide="book-open"></i>
+    <small>Journal</small>
+  </a>
+  <a href="/insights">
+    <i data-lucide="bar-chart-3"></i>
+    <small>Insights</small>
+  </a>
+  <a href="/settings">
+    <i data-lucide="settings"></i>
+    <small>Settings</small>
+  </a>
 </nav>
-
