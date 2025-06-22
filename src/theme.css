@@ -1,12 +1,37 @@
-:root {
-	--primary: #ff6f61;
-	--primary-border: #e65c50;
-	--primary-inverse: #ffffff;
-	--accent: var(--primary);
-
-	/* Force override of PicoCSS theme */
+[data-theme='custom'] {
+	/* Core primary colors */
+	--pico-primary: #ff6f61;
 	--pico-primary-background: #ff6f61;
 	--pico-primary-border: #e65c50;
 	--pico-primary-inverse: #ffffff;
+
+	/* Accent color (used for links, hovers, focus rings) */
 	--pico-accent: #ff6f61;
+
+	/* Background + muted variants */
+	--pico-muted-color: #999;
+	--pico-muted-border-color: #444;
+	--pico-muted-background-color: #2a2a2a;
+
+	/* Button states */
+	--pico-form-element-active-border-color: #ff6f61;
+	--pico-form-element-active-background-color: #ff6f61;
+	--pico-form-element-focus-color: #ff6f61;
+
+	/* Checkbox, radio, range sliders */
+	--pico-form-element-checked-background-color: #ff6f61;
+	--pico-form-element-checked-border-color: #e65c50;
+
+	/* Outline for focus-visible states */
+	--pico-outline-color: #ff6f61;
+
+	/* Progress, meter, etc. */
+	--pico-progress-background-color: #ff6f61;
+	--pico-progress-color: #1a1a1a;
+
+	/* Links */
+	--pico-link-color: #ff6f61;
+	--pico-link-underline-color: #ff6f61;
+	--pico-link-hover-color: #ff4f4f;
+	--pico-link-hover-underline-color: #ff4f4f;
 }
