@@ -1,37 +1,92 @@
+/* SoulLedger Coral Theme using data-theme="custom" */
 [data-theme='custom'] {
-	/* Core primary colors */
+	/* Core Colors */
 	--pico-primary: #ff6f61;
 	--pico-primary-background: #ff6f61;
 	--pico-primary-border: #e65c50;
 	--pico-primary-inverse: #ffffff;
 
-	/* Accent color (used for links, hovers, focus rings) */
 	--pico-accent: #ff6f61;
 
-	/* Background + muted variants */
-	--pico-muted-color: #999;
-	--pico-muted-border-color: #444;
-	--pico-muted-background-color: #2a2a2a;
+	/* Button Colors */
+	--pico-primary-hover: #ff4f4f;
+	--pico-primary-focus: #ff3a3a;
+	--pico-button-hover-background: var(--pico-primary-hover);
+	--pico-button-hover-border: #d63f3f;
 
-	/* Button states */
+	/* Link Colors */
+	--pico-link-color: #ff6f61;
+	--pico-link-hover-color: #ff4f4f;
+	--pico-link-underline-color: #ff6f61;
+	--pico-link-hover-underline-color: #ff4f4f;
+
+	/* Focus Rings */
+	--pico-outline-color: #ff6f61;
+
+	/* Form Elements */
 	--pico-form-element-active-border-color: #ff6f61;
 	--pico-form-element-active-background-color: #ff6f61;
 	--pico-form-element-focus-color: #ff6f61;
 
-	/* Checkbox, radio, range sliders */
 	--pico-form-element-checked-background-color: #ff6f61;
 	--pico-form-element-checked-border-color: #e65c50;
 
-	/* Outline for focus-visible states */
-	--pico-outline-color: #ff6f61;
+	/* Muted/Background */
+	--pico-muted-color: #aaa;
+	--pico-muted-border-color: #444;
+	--pico-muted-background-color: #222;
 
-	/* Progress, meter, etc. */
+	/* Progress bars, meters, etc. */
 	--pico-progress-background-color: #ff6f61;
 	--pico-progress-color: #1a1a1a;
 
-	/* Links */
-	--pico-link-color: #ff6f61;
-	--pico-link-underline-color: #ff6f61;
-	--pico-link-hover-color: #ff4f4f;
-	--pico-link-hover-underline-color: #ff4f4f;
+	/* Text color */
+	--pico-color: #ffffff;
+	--pico-background-color: #121212;
+}
+
+/* Enforced Button States */
+[data-theme='custom'] button,
+[data-theme='custom'] [role='button'] {
+	color: var(--pico-primary-inverse);
+	background-color: var(--pico-primary-background);
+	border-color: var(--pico-primary-border);
+}
+
+[data-theme='custom'] button:hover,
+[data-theme='custom'] [role='button']:hover,
+[data-theme='custom'] button:focus,
+[data-theme='custom'] [role='button']:focus {
+	background-color: var(--pico-button-hover-background);
+	border-color: var(--pico-button-hover-border);
+	color: var(--pico-primary-inverse);
+}
+
+/* Links */
+[data-theme='custom'] a {
+	color: var(--pico-link-color);
+	text-decoration-color: var(--pico-link-underline-color);
+}
+
+[data-theme='custom'] a:hover {
+	color: var(--pico-link-hover-color);
+	text-decoration-color: var(--pico-link-hover-underline-color);
+}
+
+/* Form Focus Styles */
+[data-theme='custom'] input:focus,
+[data-theme='custom'] textarea:focus,
+[data-theme='custom'] select:focus {
+	outline-color: var(--pico-outline-color);
+	border-color: var(--pico-form-element-focus-color);
+}
+
+/* Optional: Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+	[data-theme='custom'] {
+		--pico-background-color: #0e0e0e;
+		--pico-color: #eeeeee;
+		--pico-muted-color: #888;
+		--pico-muted-background-color: #1a1a1a;
+	}
 }

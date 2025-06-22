@@ -5,15 +5,30 @@
   import '@picocss/pico/css/pico.min.css';
   import '../theme.css';
   import '../app.css'; // your layout + component styles
-
+  import { page } from '$app/stores';
+  import { afterNavigate } from '$app/navigation';
+  import { createIcons, icons } from 'lucide';
+  
   let user: User | null = null;
+  $: path = $page.url.pathname;
 
   onMount(async () => {
-    const { data } = await supabase.auth.getUser();
+  try {
+    const { data, error } = await supabase.auth.getUser();
+    if (error) throw error;
     user = data.user;
+  } catch (e) {
+    console.warn('Supabase user fetch failed:', e);
+  }
 
-    window.lucide?.createIcons();
+  queueMicrotask(() => {
+    createIcons({ icons });
   });
+
+  afterNavigate(() => {
+    queueMicrotask(() => createIcons({ icons }));
+  });
+});
 
   async function logout() {
     await supabase.auth.signOut();
@@ -63,15 +78,15 @@
 
 <!-- 💅 Styled Mobile Bottom Tab Bar (Pico-friendly custom CSS) -->
 <nav class="mobile-tabbar">
-  <a href="/journal">
+  <a href="/journal" class:active={path === '/journal'}>
     <i data-lucide="book-open"></i>
     <small>Journal</small>
   </a>
-  <a href="/insights">
+  <a href="/insights" class:active={path === '/insights'}>
     <i data-lucide="bar-chart-3"></i>
     <small>Insights</small>
   </a>
-  <a href="/settings">
+  <a href="/settings" class:active={path === '/settings'}>
     <i data-lucide="settings"></i>
     <small>Settings</small>
   </a>

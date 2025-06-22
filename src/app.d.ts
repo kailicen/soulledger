@@ -8,12 +8,6 @@ declare global {
 			session: Session | null;
 		}
 	}
-
-	interface Window {
-		lucide?: {
-			createIcons: () => void;
-		};
-	}
 }
 
 export {};
